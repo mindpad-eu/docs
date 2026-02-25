@@ -17,7 +17,7 @@ export default defineConfig({
 				{
 					label: 'About',
 					autogenerate: { directory: 'about' },
-				}
+				},
 				{
 					label: 'MCP',
 					autogenerate: { directory: 'mcp' },
