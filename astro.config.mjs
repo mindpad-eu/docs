@@ -1,26 +1,25 @@
-// @ts-check
-import { defineConfig } from 'astro/config';
-import starlight from '@astrojs/starlight';
+import { defineConfig } from 'astro/config'
+import starlight from '@astrojs/starlight'
+import starlightOpenAPI, { openAPISidebarGroups } from 'starlight-openapi'
 
-// https://astro.build/config
 export default defineConfig({
 	integrations: [
 		starlight({
-			title: 'My Docs',
-			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/withastro/starlight' }],
+			title: 'mindpad',
+			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/mindpad-eu/docs' }],
+			plugins: [
+				starlightOpenAPI([{
+					base: 'api',
+					schema: 'src/openapi.yml',
+				}]),
+			],
 			sidebar: [
 				{
-					label: 'Guides',
-					items: [
-						// Each item here is one entry in the navigation menu.
-						{ label: 'Example Guide', slug: 'guides/example' },
-					],
+					label: 'MCP',
+					autogenerate: { directory: 'mcp' },
 				},
-				{
-					label: 'Reference',
-					autogenerate: { directory: 'reference' },
-				},
+				...openAPISidebarGroups,
 			],
 		}),
 	],
-});
+})
