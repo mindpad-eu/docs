@@ -1,0 +1,17 @@
+---
+title: mindpad
+description: Privacy-first note-taking, built in Europe.
+template: splash
+hero:
+  tagline: Your notes are encrypted on your device via OpenPGP.js before they ever sync — no backdoors, no exceptions.
+  image:
+    light: ../../assets/logo-light.svg
+    dark: ../../assets/logo-dark.svg
+---
+
+import { LinkCard, CardGrid } from '@astrojs/starlight/components';
+
+<CardGrid>
+  <LinkCard title="REST API" href="/rest-api" description="Integrate and automate mindpad programmatically over HTTP." />
+  <LinkCard title="MCP" href="/mcp" description="Control mindpad from your AI assistant via the Model Context Protocol." />
+</CardGrid>
