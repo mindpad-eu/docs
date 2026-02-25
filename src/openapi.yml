@@ -3,7 +3,7 @@ openapi: 3.1.0
 info:
   title: REST API
   description: |
-    The Mindpad API allows you to interact with your notes programmatically.
+    The mindpad API allows you to interact with your notes programmatically.
 
     ## Authentication
 
@@ -13,10 +13,10 @@ info:
     Authorization: Bearer <your-pat>
     ```
 
-    Personal Access Tokens can be generated in your Mindpad account settings.
+    PATs can be generated in your mindpad account settings.
   version: 1.0.0
   contact:
-    url: https://mindpad.eu
+    url: https://www.mindpad.eu
 
 servers:
   - url: https://app.mindpad.eu/api/v1
@@ -28,7 +28,7 @@ paths:
   /note:
     post:
       summary: Create a note
-      description: Creates a new note. The `content` field supports **Markdown**.
+      description: Creates a new note. The `content` field supports **Markdown**. Optionally, add a `!tag` to categorize your note — e.g. `!work` or `!ideas`.
       operationId: createNote
       requestBody:
         required: true
@@ -42,16 +42,16 @@ paths:
         "204":
           description: Note created successfully.
         "400":
-          $ref: "#/components/responses/BadRequest"
+          description: The request was malformed or missing required fields.
         "401":
-          $ref: "#/components/responses/Unauthorized"
+          description: Missing or invalid Personal Access Token.
 
 components:
   securitySchemes:
     pat:
       type: http
       scheme: bearer
-      description: Personal Access Token generated from your Mindpad account settings.
+      description: Personal Access Token generated from your mindpad account settings.
 
   schemas:
     CreateNoteRequest:
@@ -61,39 +61,5 @@ components:
       properties:
         content:
           type: string
-          description: The note content. Supports Markdown.
+          description: The note content. Supports Markdown. Optionally, add a `!tag` to categorize your note — e.g. `!work` or `!ideas`.
           minLength: 1
-
-    Error:
-      type: object
-      required:
-        - error
-        - message
-      properties:
-        error:
-          type: string
-          description: Machine-readable error code.
-        message:
-          type: string
-          description: Human-readable description of the error.
-
-  responses:
-    BadRequest:
-      description: The request was malformed or missing required fields.
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/Error"
-          example:
-            error: bad_request
-            message: Request body is missing or malformed.
-
-    Unauthorized:
-      description: Missing or invalid Personal Access Token.
-      content:
-        application/json:
-          schema:
-            $ref: "#/components/schemas/Error"
-          example:
-            error: unauthorized
-            message: A valid Bearer token is required.
