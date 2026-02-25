@@ -15,6 +15,10 @@ export default defineConfig({
 			],
 			sidebar: [
 				{
+					label: 'About',
+					autogenerate: { directory: 'about' },
+				}
+				{
 					label: 'MCP',
 					autogenerate: { directory: 'mcp' },
 				},
