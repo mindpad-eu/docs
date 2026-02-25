@@ -9,7 +9,7 @@ export default defineConfig({
 			social: [{ icon: 'github', label: 'GitHub', href: 'https://github.com/mindpad-eu/docs' }],
 			plugins: [
 				starlightOpenAPI([{
-					base: 'api',
+					base: 'rest-api',
 					schema: 'src/openapi.yml',
 				}]),
 			],
