@@ -5,6 +5,9 @@ import starlightOpenAPI, { openAPISidebarGroups } from 'starlight-openapi'
 export default defineConfig({
 	integrations: [
 		starlight({
+			components: {
+				Footer: './src/components/Footer.astro',
+			},
 			favicon: '/favicon.svg',
 			head: [{
 				tag: 'link',
