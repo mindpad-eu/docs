@@ -1,0 +1,270 @@
+/* ── mindpad Starlight Theme ── */
+/* Drop this file in src/styles/theme.css and reference it in astro.config.mjs customCss */
+
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap');
+
+/* ── Typography ── */
+:root {
+  --sl-font: 'Manrope', system-ui, sans-serif;
+  --sl-font-mono: 'JetBrains Mono', 'Fira Code', ui-monospace, monospace;
+}
+
+/* ── Dark mode ── */
+:root[data-theme='dark'] {
+  /* Accent — Primary Blue mapped onto Starlight's accent scale */
+  --sl-color-accent-low:  #0d1e38;
+  --sl-color-accent:      #2F5FA8;
+  --sl-color-accent-high: #6E93D6;
+
+  /* Grays — navy-tinted to match bg-dark palette */
+  --sl-color-white:  #E6EDF6;
+  --sl-color-gray-1: #c8d4e6;
+  --sl-color-gray-2: #9baec8;
+  --sl-color-gray-3: #4f6484;
+  --sl-color-gray-4: #2d3f58;
+  --sl-color-gray-5: #1e2d42;
+  --sl-color-gray-6: #162033;
+  --sl-color-gray-7: #0F1724;
+  --sl-color-black:  #0A1220;
+
+  /* Sidebar & header surfaces */
+  --sl-color-bg-sidebar: #0F1724;
+  --sl-color-bg-nav:     #0F1724;
+  --sl-color-hairline:   rgba(255, 255, 255, 0.08);
+
+  /* Text */
+  --sl-color-text:          #E6EDF6;
+  --sl-color-text-accent:   #6E93D6;
+  --sl-color-text-invert:   #0A1220;
+}
+
+/* ── Light mode ── */
+:root[data-theme='light'] {
+  /* Accent */
+  --sl-color-accent-low:  #dce8f8;
+  --sl-color-accent:      #2F5FA8;
+  --sl-color-accent-high: #1a3d72;
+
+  /* Grays — clean whites */
+  --sl-color-white:  #1A1A2E;
+  --sl-color-gray-1: #2d2d45;
+  --sl-color-gray-2: #444466;
+  --sl-color-gray-3: #6b6b90;
+  --sl-color-gray-4: #a0a0b8;
+  --sl-color-gray-5: #d4d4e0;
+  --sl-color-gray-6: #F8F9FA;
+  --sl-color-gray-7: #FFFFFF;
+  --sl-color-black:  #FFFFFF;
+
+  /* Sidebar & header surfaces */
+  --sl-color-bg-sidebar: #F8F9FA;
+  --sl-color-bg-nav:     #FFFFFF;
+  --sl-color-hairline:   #E5E7EB;
+
+  /* Text */
+  --sl-color-text:          #1A1A2E;
+  --sl-color-text-accent:   #2F5FA8;
+  --sl-color-text-invert:   #FFFFFF;
+}
+
+/* ── Shared layout & radius ── */
+:root {
+  --sl-border-radius: 10px;
+  --sl-shadow-md: 0 4px 16px rgba(47, 95, 168, 0.10);
+  --sl-shadow-lg: 0 8px 24px rgba(47, 95, 168, 0.14);
+}
+
+/* ── Navigation header ── */
+header.header {
+  border-bottom: 1px solid var(--sl-color-hairline);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+/* ── Sidebar ── */
+.sidebar-pane {
+  border-right: 1px solid var(--sl-color-hairline);
+}
+
+nav.sidebar .top-level > li > a,
+nav.sidebar .top-level > li > details > summary {
+  font-weight: 600;
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--sl-color-text-accent);
+}
+
+nav.sidebar a[aria-current='page'] {
+  background: rgba(47, 95, 168, 0.10);
+  border-radius: 8px;
+  font-weight: 600;
+  color: var(--sl-color-accent);
+}
+
+:root[data-theme='dark'] nav.sidebar a[aria-current='page'] {
+  background: rgba(110, 147, 214, 0.12);
+  color: #6E93D6;
+}
+
+/* ── Badge — accent gold for "new" / "beta" labels ── */
+.sl-badge {
+  border-radius: 6px;
+  font-weight: 700;
+  font-size: 0.65rem;
+  letter-spacing: 0.04em;
+}
+
+.sl-badge.tip,
+.sl-badge.note {
+  background: rgba(227, 179, 65, 0.15);
+  color: #c8960a;
+  border-color: rgba(227, 179, 65, 0.35);
+}
+
+:root[data-theme='dark'] .sl-badge.tip,
+:root[data-theme='dark'] .sl-badge.note {
+  background: rgba(227, 179, 65, 0.10);
+  color: #E3B341;
+  border-color: rgba(227, 179, 65, 0.25);
+}
+
+/* ── Asides / callouts ── */
+.starlight-aside {
+  border-radius: 10px;
+  border-width: 1px;
+}
+
+.starlight-aside--note {
+  border-color: rgba(47, 95, 168, 0.25);
+  background: rgba(47, 95, 168, 0.05);
+}
+
+.starlight-aside--tip {
+  border-color: rgba(227, 179, 65, 0.30);
+  background: rgba(227, 179, 65, 0.05);
+}
+
+.starlight-aside--caution {
+  border-color: rgba(227, 179, 65, 0.40);
+  background: rgba(227, 179, 65, 0.07);
+}
+
+/* ── Code blocks ── */
+.expressive-code .frame {
+  border-radius: 12px;
+  border: 1px solid var(--sl-color-hairline);
+}
+
+.expressive-code .frame .header {
+  border-bottom: 1px solid var(--sl-color-hairline);
+  border-radius: 12px 12px 0 0;
+}
+
+/* ── Inline code ── */
+:root[data-theme='dark'] code:not([class]) {
+  background: rgba(110, 147, 214, 0.10);
+  color: #6E93D6;
+  border: 1px solid rgba(110, 147, 214, 0.18);
+  border-radius: 5px;
+  padding: 0.1em 0.35em;
+}
+
+:root[data-theme='light'] code:not([class]) {
+  background: rgba(47, 95, 168, 0.07);
+  color: #2F5FA8;
+  border: 1px solid rgba(47, 95, 168, 0.15);
+  border-radius: 5px;
+  padding: 0.1em 0.35em;
+}
+
+/* ── Table of contents ── */
+starlight-toc a[aria-current='true'] {
+  color: var(--sl-color-accent);
+  font-weight: 600;
+}
+
+/* ── Headings ── */
+.sl-markdown-content h1,
+.sl-markdown-content h2,
+.sl-markdown-content h3,
+.sl-markdown-content h4 {
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+.sl-markdown-content h2 {
+  border-bottom: 1.5px solid var(--sl-color-hairline);
+  padding-bottom: 0.4em;
+}
+
+/* ── Links ── */
+.sl-markdown-content a {
+  color: var(--sl-color-accent);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.sl-markdown-content a:hover {
+  color: var(--sl-color-accent-high);
+}
+
+/* ── Pagination buttons ── */
+.pagination-links a {
+  border-radius: 10px;
+  border: 1.5px solid var(--sl-color-hairline);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.pagination-links a:hover {
+  border-color: var(--sl-color-accent);
+  box-shadow: 0 4px 16px rgba(47, 95, 168, 0.12);
+}
+
+/* ── Search ── */
+site-search button[data-open-modal] {
+  border-radius: 8px;
+  border: 1px solid var(--sl-color-hairline);
+}
+
+/* ── Hero section (for landing/index pages) ── */
+.hero {
+  background: linear-gradient(135deg, #0A1220 0%, #0F1724 60%, #162033 100%);
+  border-radius: 16px;
+  padding: 3rem;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  right: -80px;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(47, 95, 168, 0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero .tagline {
+  color: rgba(230, 237, 246, 0.7);
+}
+
+.hero .actions a[data-variant='primary'] {
+  background: #E3B341;
+  color: #1A1A2E;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  box-shadow: 0 4px 20px rgba(227, 179, 65, 0.35);
+}
+
+.hero .actions a[data-variant='secondary'] {
+  border-radius: 10px;
+  border: 1.5px solid rgba(110, 147, 214, 0.35);
+  color: #6E93D6;
+  background: transparent;
+}
