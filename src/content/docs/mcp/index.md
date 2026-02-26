@@ -15,7 +15,7 @@ The mindpad MCP server lets you save notes directly from AI assistants like [Cla
 
 1. **Generate a Personal Access Token**
 
-   Go to [mindpad](https://www.mindpad.eu?utm_source=docs) → Account Settings → API and generate a Personal Access Token. Copy it — it's only shown once.
+   Go to [mindpad](https://www.mindpad.eu?utm_source=docs) → Account Settings → API and generate a Personal Access Token (PAT). Copy it — it's only shown once.
 
 2. **Add to your AI assistant**
 
@@ -61,14 +61,12 @@ Saves a note to your mindpad account.
 | --------- | -------- | -------- | ---------------------------------------------------------------- |
 | `content` | `string` | Yes      | The note content in markdown. Use `!tagname` to add tags inline. |
 
-**Example response:** `Note saved to mindpad.`
-
 ## Authentication
 
 The MCP server authenticates using a Personal Access Token (PAT) passed via the `MINDPAD_PAT` environment variable. The token is sent as a `Bearer` token to the mindpad API on every request.
 
 <Aside type="caution">
-  Keep your PAT secret. Anyone with access to it can save notes to your account. You can revoke tokens at any time from Acconut Settings → API.
+  Keep your PAT secret. Anyone with access to it can save notes to your account. You can revoke tokens at any time from [mindpad](https://www.mindpad.eu?utm_source=docs) → Account Settings → API.
 </Aside>
 
 ## Privacy
