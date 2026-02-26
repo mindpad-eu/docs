@@ -15,7 +15,7 @@ The mindpad MCP server lets you save notes directly from AI assistants like [Cla
 
 1. **Generate a Personal Access Token**
 
-   Go to [mindpad](https://www.mindpad.eu?utm_source=docs) → Settings → API and generate a Personal Access Token. Copy it — it's only shown once.
+   Go to [mindpad](https://www.mindpad.eu?utm_source=docs) → Account Settings → API and generate a Personal Access Token. Copy it — it's only shown once.
 
 2. **Add to your AI assistant**
 
