@@ -3,12 +3,10 @@ title: Overview
 description: Save notes to mindpad directly from your AI assistant using the Model Context Protocol (MCP).
 ---
 
-import { Aside, Steps, Tabs, TabItem } from '@astrojs/starlight/components';
-
-The mindpad MCP server lets you save notes directly from AI assistants like Claude Desktop and Cursor — without leaving your workflow.
+The mindpad MCP server lets you save notes directly from AI assistants like [Claude Desktop](https://code.claude.com/docs/en/desktop) and [Cursor](https://cursor.com) — without leaving your workflow.
 
 <Aside type="tip">
-  Your notes are end-to-end encrypted on your device before they sync. mindpad cannot read them, and neither can your AI assistant — it only sends the content you tell it to save.
+  Your notes are encrypted on our servers — we never store them in plain text.
 </Aside>
 
 ## Setup
@@ -23,28 +21,19 @@ The mindpad MCP server lets you save notes directly from AI assistants like Clau
 
    Add the following to your MCP client config:
 
-   <Tabs>
-     <TabItem label="Claude Desktop">
-       Open `~/Library/Application Support/Claude/claude_desktop_config.json` (macOS) or `%APPDATA%\Claude\claude_desktop_config.json` (Windows) and add:
-
-       ```json
-       {
-         "mcpServers": {
-           "mindpad": {
-             "command": "npx",
-             "args": ["-y", "@mindpad/mcp"],
-             "env": {
-               "MINDPAD_PAT": "your-pat-here"
-             }
-           }
-         }
-       }
-       ```
-     </TabItem>
-     <TabItem label="Cursor">
-       Open Cursor Settings → MCP and add the same configuration block.
-     </TabItem>
-   </Tabs>
+    ```json
+    {
+      "mcpServers": {
+        "mindpad": {
+          "command": "npx",
+          "args": ["-y", "@mindpad/mcp"],
+          "env": {
+            "MINDPAD_PAT": "your-pat-here"
+          }
+        }
+      }
+    }
+    ```
 
 3. **Restart your AI assistant**
 
@@ -68,9 +57,9 @@ Tags can be added inline using `!tagname`.
 
 Saves a note to your mindpad account.
 
-| Parameter | Type | Required | Description |
-|-----------|------|----------|-------------|
-| `content` | `string` | Yes | The note content in markdown. Use `!tagname` to add tags inline. |
+| Parameter | Type     | Required | Description                                                      |
+| --------- | -------- | -------- | ---------------------------------------------------------------- |
+| `content` | `string` | Yes      | The note content in markdown. Use `!tagname` to add tags inline. |
 
 **Example response:** `Note saved to mindpad.`
 
@@ -79,7 +68,7 @@ Saves a note to your mindpad account.
 The MCP server authenticates using a Personal Access Token (PAT) passed via the `MINDPAD_PAT` environment variable. The token is sent as a `Bearer` token to the mindpad API on every request.
 
 <Aside type="caution">
-  Keep your PAT secret. Anyone with access to it can save notes to your account. You can revoke tokens at any time from Settings → API.
+  Keep your PAT secret. Anyone with access to it can save notes to your account. You can revoke tokens at any time from Acconut Settings → API.
 </Aside>
 
 ## Privacy
