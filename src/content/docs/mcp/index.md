@@ -73,4 +73,8 @@ The MCP server authenticates using a Personal Access Token (PAT) passed via the 
 
 ## Privacy
 
-The MCP server forwards your note content to the mindpad API, where it is encrypted on your device before syncing. The AI assistant never has access to your existing notes or encryption key — it can only save new content you explicitly ask it to.
+The MCP server forwards the note content you provide to the mindpad API.
+
+When using the web app, notes are encrypted client-side before being sent to the server. When using the API (including via MCP), notes are encrypted server-side before storage.
+
+The AI assistant never has access to your existing notes or your encryption key. It can only save new content that you explicitly instruct it to create.
